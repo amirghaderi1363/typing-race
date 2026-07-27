@@ -1,0 +1,340 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.card {
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.stats-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #e9ecef;
+}
+
+.stats-card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+}
+
+.btn-secondary {
+    background: #95a5a6;
+    color: white;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-around;
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.timer, .wpm-display, .accuracy-display {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.text-display {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    min-height: 100px;
+    border: 2px solid #e9ecef;
+    font-family: 'Courier New', monospace;
+}
+
+.progress-bar {
+    background: #e9ecef;
+    border-radius: 10px;
+    height: 25px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress {
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+#progressText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.input-area {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 15px;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-family: 'Courier New', monospace;
+    resize: none;
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #2ecc71;
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+}
+
+textarea:disabled {
+    background: #f8f9fa;
+    cursor: not-allowed;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.result-card {
+    background: linear-gradient(135deg, #2ecc71, #3498db);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.result-card h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.result-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.big-stat {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.big-stat .stat-value {
+    font-size: 3rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.result-message {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.result-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.leaderboard {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #e9ecef;
+}
+
+.leaderboard h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: white;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-item:nth-child(1) {
+    background: linear-gradient(135deg, #f1c40f, #f39c12);
+    color: white;
+}
+
+.leaderboard-item:nth-child(2) {
+    background: linear-gradient(135deg, #bdc3c7, #95a5a6);
+    color: white;
+}
+
+.leaderboard-item:nth-child(3) {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    color: white;
+}
+
+.leaderboard-rank {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.leaderboard-name {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.leaderboard-score {
+    font-weight: bold;
+}
+
+.char {
+    transition: color 0.1s;
+}
+
+.char.correct {
+    color: #2ecc71;
+    background: rgba(46, 204, 113, 0.1);
+}
+
+.char.incorrect {
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+}
+
+.char.current {
+    border-bottom: 2px solid #3498db;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { border-bottom-color: #3498db; }
+    50% { border-bottom-color: transparent; }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size:
